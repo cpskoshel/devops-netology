@@ -21,3 +21,4 @@ override.tf.json
 crash.log
 
 new line
+edit IDE
