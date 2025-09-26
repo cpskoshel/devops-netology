@@ -22,3 +22,4 @@ crash.log
 
 new line
 edit IDE
+edit IDE 2
