@@ -1,0 +1,33 @@
+include:
+  - proxy.yaml
+
+services:
+  web:
+    env_file:
+      - .env
+    #image: python # для подключения с registry
+    environment:
+      DB_HOST: mysql
+      DB_USER: ${MYSQL_USER} 
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE}
+    build: 
+      dockerfile: Dockerfile.python
+    restart: always
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5
+    depends_on:
+      - mysql
+  mysql:
+    env_file:
+      - .env
+    image: mysql:8
+    networks: 
+      backend:
+        ipv4_address: 172.20.0.10
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 7s
+      retries: 4
+    restart: always
