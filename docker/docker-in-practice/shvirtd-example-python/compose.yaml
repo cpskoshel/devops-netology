@@ -1,5 +1,5 @@
 include:
-  - proxy.yaml
+   - path: proxy.yaml
 
 services:
   web:
@@ -18,7 +18,8 @@ services:
       backend:
         ipv4_address: 172.20.0.5
     depends_on:
-      - mysql
+     mysql:
+        condition: service_healthy
   mysql:
     env_file:
       - .env
@@ -28,6 +29,6 @@ services:
         ipv4_address: 172.20.0.10
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 7s
-      retries: 4
+      timeout: 10s
+      retries: 5
     restart: always
