@@ -47,9 +47,12 @@ https://github.com/cpskoshel/vector-role
 
 ## Решение
 ---
-https://github.com/cpskoshel/lighthouse-role
-https://github.com/cpskoshel/vector-role
-https://github.com/cpskoshel/devops-netology/tree/main/ansible/04/playbook
+[lighthouse](https://github.com/cpskoshel/lighthouse-role)
+
+[vector](https://github.com/cpskoshel/vector-role)
+
+[playbook](https://github.com/cpskoshel/devops-netology/tree/main/ansible/04/playbook)
+
 ---
 
 ### Как оформить решение задания
