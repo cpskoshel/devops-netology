@@ -1,0 +1,22 @@
+# tox/molecule.yml
+---
+dependency:
+  name: galaxy
+role_name_check: 1
+driver:
+  name: podman
+platforms:
+  - name: stupefied_curie
+    image: docker.io/pycontribs/debian:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+  role_name: vector-role
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - destroy

@@ -1,0 +1,9 @@
+# tox/verify.yml
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Example assertion
+      ansible.builtin.assert:
+        that: true
