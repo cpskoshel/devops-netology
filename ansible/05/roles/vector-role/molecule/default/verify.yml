@@ -1,0 +1,16 @@
+# default/verify.yml
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    assert:
+      that: true
+  - name: Status config vector file
+    ansible.builtin.stat:
+      path: "/etc/vector/vector.yml"
+    register: vector_conf
+  - name:  Сonfig validating
+    ansible.builtin.command: "vector validate /etc/vector/vector.yml --no-environment"
+    register: valid_resultсв

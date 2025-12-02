@@ -1,0 +1,25 @@
+# default/molecule.yml
+---
+dependency:
+  name: galaxy
+role_name_check: 1
+driver:
+  name: docker
+lint: |
+  .ansible-lint .
+  .yamllint .
+platforms:
+  - name: sad_merkle
+    image: docker.io/pycontribs/ubuntu:latest
+    pre_build_image: true
+  - name: dreamy_varahamihira
+    image: docker.io/pycontribs/oraclelinux:8
+    pre_build_image: true
+  - name: awesome_bhabha
+    image: docker.io/pycontribs/debian:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+  role_name: vector-role
+verifier:
+  name: ansible

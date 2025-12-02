@@ -1,0 +1,13 @@
+#SPDX-License-Identifier: MIT-0
+galaxy_info:
+  author: cpskoshel
+  description: netology_taskk_04_vector
+  company: netology
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  galaxy_tags: []
+
+dependencies: []
