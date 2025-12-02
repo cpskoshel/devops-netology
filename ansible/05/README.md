@@ -80,4 +80,5 @@ ___
 ---
 ![alt text](./images/image2.png)
 ![alt text](./images/image3.png)
+https://github.com/cpskoshel/devops-netology/releases/tag/v1.2.0
 ___
