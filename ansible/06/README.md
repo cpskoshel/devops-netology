@@ -198,7 +198,10 @@ if __name__ == '__main__':
 ---
 ![alt text](./images/image2.png)
 ![alt text](./images/image3.png)
-![alt text](image.png)
+https://github.com/cpskoshel/devops-netology/releases/tag/v2.0.0
+![alt text](./images/image4.png)
+![alt text](./images/image5.png)
+![alt text](./images/image6.png)
 ---
 
 ### Как оформить решение задания
