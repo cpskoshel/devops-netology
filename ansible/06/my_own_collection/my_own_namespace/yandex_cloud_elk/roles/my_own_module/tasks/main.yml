@@ -1,0 +1,7 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for my_own_module
+- name: Create file
+  my_module_create_file:
+    path: "{{ path }}"
+    content: "{{ content }}"

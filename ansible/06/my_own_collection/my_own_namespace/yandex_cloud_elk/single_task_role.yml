@@ -1,0 +1,5 @@
+---
+- name: Task11
+  hosts: localhost
+  roles:
+    - role: my_own_collection
