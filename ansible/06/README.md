@@ -202,6 +202,7 @@ https://github.com/cpskoshel/devops-netology/releases/tag/v2.0.0
 ![alt text](./images/image4.png)
 ![alt text](./images/image5.png)
 ![alt text](./images/image6.png)
+https://github.com/cpskoshel/devops-netology/blob/main/ansible/06/my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
 ---
 
 ### Как оформить решение задания
