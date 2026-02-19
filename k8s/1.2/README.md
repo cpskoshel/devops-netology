@@ -29,7 +29,7 @@
 
 ## Решение
 ![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image-1.png)            
 [manifest](./config/pods/hello-world.yaml)
 ------
 
@@ -41,7 +41,7 @@
 >4. Подключиться локально к Service с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
 
 ## Решение
-![alt text](image-2.png)
+![alt text](image-2.png)        
 [manifest](./config/pods/netology-web.yaml)
 ------
 
