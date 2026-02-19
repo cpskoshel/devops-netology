@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netology-web
+  labels:
+    app: netology
+spec:
+  containers:
+  - name: hello-world
+    image: nick5616/echoserver:2.4-linux-arm64
+    ports:
+    - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: netology-svc
+spec:
+  selector:
+    app: netology
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
