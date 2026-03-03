@@ -33,13 +33,11 @@
 ------
 
 ## Решение
-1. nginx и multitool используют один порт. Смещаем порт, чтобы не было конфликта с nginx на 80 порту
-![alt text](image.png)
-2. 
-![alt text](image-1.png)
-3. Скрины 1-2
-4. ![alt text](image-2.png)
-5. ![alt text](image-4.png)
+1. nginx и multitool используют один порт. Смещаем порт, чтобы не было конфликта с nginx на 80 порту ![alt text](image.png)  
+2. ![alt text](image-1.png)    
+3. Скрины 1-2   
+4. ![alt text](image-2.png) 
+5. ![alt text](image-4.png)     
 [Манифесты](./config/task_1/)
 ------
 
@@ -53,9 +51,10 @@
 ------
 
 ## Решение
-1-2. После kubectl apply -f ./config/task_2/deployment.yaml -n 1-3-ns статус пода будет Init:0/1, так как DNS-имя еще не существует.
-![alt text](image-5.png)
-3-4. ![alt text](image-6.png)
+1-2. После kubectl apply -f ./config/task_2/deployment.yaml -n 1-3-ns статус пода будет Init:0/1, так как DNS-имя еще не существует.            
+![alt text](image-5.png)    
+3-4.    
+    ![alt text](image-6.png)    
 [Манифесты](./config/task_2/)
 ------
 
