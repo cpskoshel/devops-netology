@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dual-app
+  labels:
+    app: multitool-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: multitool-nginx
+  template:
+    metadata:
+      labels:
+        app: multitool-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+      - name: multitool
+        image: wbitt/network-multitool
+        env:
+        - name: HTTP_PORT
+          value: "8080" # Смещаем порт, чтобы не было конфликта с nginx на 80 порту
+        ports:
+        - containerPort: 8080
