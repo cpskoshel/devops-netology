@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dual-svc
+spec:
+  selector:
+    app: multitool-nginx # Должен совпадать с labels в Deployment
+  ports:
+    - name: http-nginx
+      protocol: TCP
+      port: 9001         # Порт самого сервиса
+      targetPort: 80   # Порт контейнера nginx
+
+    - name: http-multitool
+      protocol: TCP
+      port: 9002       # Порт самого сервиса
+      targetPort: 8080 # Порт контейнера multitool
+  type: ClusterIP      # По умолчанию (доступ внутри кластера)
