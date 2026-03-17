@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-exchange
+  labels:
+    app: storage-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storage-test
+  template:
+    metadata:
+      labels:
+        app: storage-test
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo "$(date): Data from busybox" >> /shared-data/output.txt; sleep 5; done']
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      volumes:
+      - name: shared-storage
+        emptyDir: {}

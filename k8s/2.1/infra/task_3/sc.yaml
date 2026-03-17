@@ -1,0 +1,53 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage-class
+provisioner: microk8s.io/hostpath
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sc-pvc
+spec:
+  storageClassName: local-storage-class
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sc-test
+  template:
+    metadata:
+      labels:
+        app: sc-test
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo "$(date): Writing via SC" >> /data/log.txt; sleep 5; done']
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /data
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /data
+      volumes:
+      - name: storage-volume
+        persistentVolumeClaim:
+          claimName: sc-pvc
