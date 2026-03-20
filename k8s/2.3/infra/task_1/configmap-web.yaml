@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  index.html: |
+    <html>
+    <h1>Task1.</h1>
+    <h3>Страница загружена из ConfigMap</h3>
+    </html>
