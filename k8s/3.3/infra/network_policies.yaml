@@ -1,0 +1,37 @@
+# 1. Весь входящий трафик в Namespace по умолчанию
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: app
+spec:
+  podSelector: {}
+  policyTypes: [Ingress]
+---
+# 2. Frontend -> Backend
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend-to-backend
+  namespace: app
+spec:
+  podSelector:
+    matchLabels: { app: backend }
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels: { app: frontend }
+---
+# 3. Backend -> Cache
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-to-cache
+  namespace: app
+spec:
+  podSelector:
+    matchLabels: { app: cache }
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels: { app: backend }
