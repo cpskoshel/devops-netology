@@ -54,10 +54,10 @@
    1. Из frontend напрямую в cache:
    kubectl exec -n app -it deploy/frontend -- curl --connect-timeout 2 cache (Тайм-аут)
   ![alt text](image-4.png)
-   2. Из cache в backend (обратный трафик без явного разрешения):
+   2. Из cache в backend:
    kubectl exec -n app -it deploy/cache -- curl --connect-timeout 2 backend (Тайм-аут)
    ![alt text](image-5.png)
-   3. Извне в любой под (если нет Ingress/NodePort):
+   3. Извне в любой под:
    Трафик будет блокироваться политикой default-deny-all.
    ![alt text](image-3.png)
 
