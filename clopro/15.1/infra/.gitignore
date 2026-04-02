@@ -1,0 +1,21 @@
+# Local .terraform directories and files
+**/.terraform/*
+.terraform*
+
+!.terraformrc
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# own secret vars store.
+personal.auto.tfvars
+vars.tfvars
+
+
+terraform.tfvars
+
+tfplan
+
+cloud-init.yml
+
